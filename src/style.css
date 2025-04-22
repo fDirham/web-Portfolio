@@ -48,6 +48,23 @@ main {
   -o-user-select: none;
 }
 
+.hero__links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+  gap: 16px;
+}
+
+.hero__links a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+.hero__links a:hover {
+  color: var(--on-surface-color);
+}
+
 /* 
 @media (prefers-color-scheme: dark) {
 	:root {
