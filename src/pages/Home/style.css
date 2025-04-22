@@ -39,7 +39,31 @@ MARK: PROJECT LIST
   flex-direction: column;
   margin-top: 25vh;
   margin-left: 7vw;
-  gap: 30px;
+  gap: 20px;
+}
+
+.project-list__info {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-weight: 600;
+}
+
+.project-list:hover .project-list__info {
+  opacity: 1;
+}
+
+.project-block__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.project-block__lock-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .project-block {
@@ -48,6 +72,23 @@ MARK: PROJECT LIST
   align-items: center;
   gap: 16px;
   width: 300px;
+  cursor: pointer;
+  padding: 0;
+  transition: padding 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.project-block:hover,
+.project-block--selected {
+  padding: 8px;
+  background-color: var(--project-block-hover-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-block--selected + .project-block__lock-icon {
+  opacity: 1;
 }
 
 .project-block__img-container {
@@ -76,14 +117,14 @@ MARK: PROJECT LIST
 .project-block__name-container p {
   font-size: 14px;
   font-weight: normal;
-  color: var(--on-surface-fade-color);
+  color: var(--on-surface-fade-colo--fade);
 }
 
 .project-block__year {
   margin-left: auto;
   font-size: 16px;
   font-weight: normal;
-  color: var(--on-surface-fade-color);
+  color: var(--on-surface-color--fade);
 }
 
 /*
