@@ -3,20 +3,17 @@ import { LocationProvider, Router, Route, lazy } from "preact-iso";
 
 import Home from "./pages/Home/index.jsx";
 import "./style.css";
-import { PageWrapper } from "./components/PageWrapper/index.js";
+import { NotFound } from "./pages/_404.js";
 const About = lazy(() => import("./pages/About/index.js"));
 
 export function App() {
   return (
     <LocationProvider>
       <main>
-        <PageWrapper>
-          <Router>
-            <Route path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route default component={Home} />
-          </Router>
-        </PageWrapper>
+        <Router>
+          <Route path="/" component={Home} />
+          <Route default component={NotFound} />
+        </Router>
       </main>
     </LocationProvider>
   );

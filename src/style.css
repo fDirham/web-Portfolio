@@ -65,6 +65,9 @@ main {
   color: var(--on-surface-color);
 }
 
+* {
+  box-sizing: border-box;
+}
 /* 
 @media (prefers-color-scheme: dark) {
 	:root {
