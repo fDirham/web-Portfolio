@@ -1,36 +1,14 @@
 import "./style.css";
-import useWindowSize from "../../hooks/useWindowSize";
 import { useState } from "preact/hooks";
 import ProjectListMenu from "../../components/ProjectListMenu";
 import { ChatMessage } from "../../types/ChatMessage";
-import {
-  URL_BLANK_AVATAR,
-  URL_HEADSHOT,
-} from "../../constants/globalConstants";
+import { URL_BLANK_AVATAR } from "../../constants/globalConstants";
 import BottomContainer from "../../components/BottomContainer";
 import Header from "../../components/Header";
 import Chat from "../../components/Chat";
-
-const PLACEHOLDER_MESSAGES: ChatMessage[] = [
-  {
-    id: "one",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
-    content:
-      "👋 Welcome to my portfolio! My name is Fajar Dirham. Before we get started, tell me a little about yourself.",
-  },
-  {
-    id: "two",
-    avatarUrl: URL_BLANK_AVATAR,
-    author: "You",
-    content: "I’m a recruiter.",
-  },
-];
+import { PLACEHOLDER_MESSAGES } from "../../constants/placeholders";
 
 export default function Home() {
-  const windowSize = useWindowSize();
-  const isMobile = windowSize.width <= 500;
-
   const [showProjectListMenu, setShowProjectListMenu] = useState(true);
   const [messages, setMessages] = useState<ChatMessage[]>(PLACEHOLDER_MESSAGES);
   const [inputValue, setInputValue] = useState("");

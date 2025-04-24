@@ -1,6 +1,6 @@
 import { APP_LIST } from "../../constants/appList";
 import CloseIcon from "../CloseIcon";
-import "./style.css";
+import "./ProjectListMenu.css";
 
 type ProjectListMenuProps = {
   show: boolean;
@@ -28,12 +28,12 @@ export default function ProjectListMenu({
   };
 
   const renderProjects = () => {
-    return APP_LIST.map((app) => {
+    return APP_LIST.map((app, i) => {
       const projectBlockClassList = ["project-block", "noselect"];
       const projectBlockClass = projectBlockClassList.join(" ");
 
       return (
-        <div class={projectBlockClass}>
+        <div class={projectBlockClass} key={i}>
           <div class="project-block__img-container">
             <img src={app.iconUrl} alt="" />
           </div>
