@@ -17,6 +17,12 @@
   --link-color: #8e8e8e;
   --project-block-hover-color: #f3f3f3;
 
+  --clear-material-border: 1px solid rgba(214, 214, 214, 0.5);
+  --clear-material-color: rgba(255, 255, 255, 0.4);
+  --on-clear-material-color: #222;
+  --clear-material-interactable-color: #222;
+  --on-clear-material-interactable-color: #fff;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

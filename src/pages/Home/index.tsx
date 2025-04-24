@@ -9,6 +9,7 @@ import {
 } from "../../constants/globalConstants";
 import BottomContainer from "../../components/BottomContainer";
 import SideMenuIcon from "../../components/SideMenuIcon";
+import Header from "../../components/Header";
 
 const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   {
@@ -71,16 +72,14 @@ export default function Home() {
 
   return (
     <div class="home-container">
-      <div class="header">
-        <button
-          class="header__side-menu-button"
-          onClick={() => setShowProjectListMenu(!showProjectListMenu)}
-        >
-          <SideMenuIcon class="header__side-menu-button__icon" />
-        </button>
-      </div>
+      <Header
+        toggleProjectListMenu={() => setShowProjectListMenu((curr) => !curr)}
+      />
       <div class="home-content">
-        <ProjectListMenu show={showProjectListMenu} />
+        <ProjectListMenu
+          show={showProjectListMenu}
+          setShow={setShowProjectListMenu}
+        />
         <div class="chat__container">
           <div class="chat__messages-container">{renderMessages()}</div>
         </div>

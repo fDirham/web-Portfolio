@@ -4,13 +4,15 @@
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.4); /* Semi-transparent white */
-  backdrop-filter: blur(10px); /* Apply blur effect */
-  display: flex;
-  flex-direction: row;
   padding-bottom: 20px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Optional: subtle border for better definition */
+
+  display: flex;
+  flex-direction: row;
+
+  border-top: var(--clear-material-border);
+  background-color: var(--clear-material-color);
+  backdrop-filter: blur(10px); /* Apply blur effect */
 }
 
 /* .bottom__project-list-spacer {
