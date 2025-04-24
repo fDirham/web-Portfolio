@@ -3,19 +3,21 @@
   width: 100%;
   min-height: 100vh;
   background-color: #f0f0f0; /* Optional background color */
-
   background-color: hsla(180, 1%, 97%, 1);
   background-image: radial-gradient(
       at 81% 65%,
       hsla(218, 98%, 94%, 1) 0px,
       transparent 50%
     ),
-    radial-gradient(at 95% 99%, rgb(255, 236, 215) 0px, transparent 50%),
-    radial-gradient(at 48% 26%, rgb(245, 218, 249) 0px, transparent 50%),
-    radial-gradient(at 75% 26%, rgb(209, 242, 224) 0px, transparent 50%);
+    radial-gradient(at 95% 99%, rgb(251, 221, 186) 0px, transparent 50%),
+    radial-gradient(at 48% 26%, rgb(250, 229, 253) 0px, transparent 50%),
+    radial-gradient(at 75% 26%, rgb(227, 248, 218) 0px, transparent 50%);
 
   background-size: 500% 500%;
-  animation: gradient 9s ease infinite;
+  animation: gradient 18s ease infinite;
+
+  display: flex;
+  flex-direction: row;
 }
 
 @keyframes gradient {
@@ -30,33 +32,59 @@
   }
 }
 
-.home-container {
+.chat__container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 300px;
+}
+
+/*
+MARK: MESSAGES
+*/
+
+.chat__messages-container {
+  display: flex;
+  flex-direction: column;
   align-items: start;
+  width: 600px;
+  margin-top: 24px;
+  gap: 24px;
 }
 
-.hero__image-container {
-  margin-right: 12px;
+.chat__message {
+  display: grid;
+  grid-template-columns: 40px auto;
 }
 
-.hero__image-container img {
-  width: 42px;
-  height: 42px;
+.chat__message__avatar-container {
+  border-radius: 100%;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
 }
 
-.gradient-emphasis-text {
-  background: linear-gradient(
-    45deg,
-    #f43e3e,
-    #dd9f66
-  ); /* Define the gradient */
-  background-clip: text; /* Standard property for compatibility */
-  -webkit-background-clip: text; /* Clip the background to the text */
-  -webkit-text-fill-color: transparent; /* Make the text itself transparent */
+.chat__message__avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hero__text h1 {
-  font-size: 22px;
-  line-height: 26px;
+.chat__message__main {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.chat__message__author {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.chat__message__content {
+  font-size: 16px;
+  font-weight: 400;
 }
