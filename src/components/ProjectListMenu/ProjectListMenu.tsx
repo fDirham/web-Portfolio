@@ -1,15 +1,18 @@
 import { APP_LIST } from "../../constants/appList";
+import { AppShowcaseItem } from "../../types/AppShowcaseItem";
 import CloseIcon from "../CloseIcon";
 import "./ProjectListMenu.css";
 
 type ProjectListMenuProps = {
   show: boolean;
   setShow: (show: boolean) => void;
+  onAppClick: (app: AppShowcaseItem) => void;
 };
 
 export default function ProjectListMenu({
   show,
   setShow,
+  onAppClick,
 }: ProjectListMenuProps) {
   const classNamePseudoSpacer = () => {
     const base = ["pl-menu-pseudo-spacer"];
@@ -33,7 +36,7 @@ export default function ProjectListMenu({
       const projectBlockClass = projectBlockClassList.join(" ");
 
       return (
-        <div class={projectBlockClass} key={i}>
+        <div class={projectBlockClass} key={i} onClick={() => onAppClick(app)}>
           <div class="project-block__img-container">
             <img src={app.iconUrl} alt="" />
           </div>

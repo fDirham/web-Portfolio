@@ -6,7 +6,7 @@ export const APP_LIST: AppShowcaseItem[] = [
     name: "Proffy AI",
     shortDescription: "AI flash cards app",
     description:
-      "Cat themed productivity app. Built with SwiftUI. Drove users through TikTok + in person events.",
+      "A cat themed productivity app. Built with SwiftUI. Drove users through TikTok + in person events.",
     year: "2025",
     videoUrl: "https://www.youtube.com/watch?v=2e8v4g0j7xA",
     iconUrl: CDN_ROOT_URL + "snapexplain/icon-64x64.jpg",

@@ -1,13 +1,16 @@
 import { ChatMessage } from "../types/ChatMessage";
-import { URL_BLANK_AVATAR, URL_HEADSHOT } from "./globalConstants";
+import {
+  NAME_OG_AUTHOR,
+  URL_BLANK_AVATAR,
+  URL_OG_AUTHOR_PIC,
+} from "./globalConstants";
 
 export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   {
     id: "one",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
-    content:
-      "👋 Welcome to my portfolio! My name is Fajar Dirham. Before we get started, tell me a little about yourself.",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
+    content: `👋 Welcome to my portfolio! My name is ${NAME_OG_AUTHOR}. Before we get started, tell me a little about yourself.`,
   },
   {
     id: "two",
@@ -17,8 +20,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "three",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content: "That's great! Are you looking for a specific skill set?",
   },
   {
@@ -29,8 +32,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "five",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content:
       "Awesome! I specialize in front-end development. Let me show you some projects.",
   },
@@ -42,8 +45,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "seven",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content: "I primarily work with React, TypeScript, and Preact.",
   },
   {
@@ -54,8 +57,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "nine",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content:
       "Yes, I ensure all my projects are mobile-friendly and responsive.",
   },
@@ -67,8 +70,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "eleven",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content:
       "Sure! I once built a real-time chat app with WebSocket integration.",
   },
@@ -80,8 +83,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "thirteen",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content:
       "The hardest part was ensuring scalability and handling edge cases.",
   },
@@ -93,8 +96,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "fifteen",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content:
       "My favorite project is this portfolio! It’s a blend of creativity and functionality.",
   },
@@ -106,8 +109,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "seventeen",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content: "Absolutely! I enjoy collaborating and learning from others.",
   },
   {
@@ -118,8 +121,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "nineteen",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content:
       "I break problems into smaller tasks and tackle them systematically.",
   },
@@ -131,8 +134,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "twenty-one",
-    avatarUrl: URL_HEADSHOT,
-    author: "Fajar Dirham",
+    avatarUrl: URL_OG_AUTHOR_PIC,
+    author: NAME_OG_AUTHOR,
     content: "Thank you! Feel free to reach out if you have any questions.",
   },
 ];

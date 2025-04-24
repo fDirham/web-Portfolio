@@ -14,7 +14,8 @@
   --input-interactable-color--disabled: #414141;
   --on-input-interactable-color: #e7e7e7;
   --on-input-interactable-color--disabled: #c2c2c2;
-  --link-color: #8e8e8e;
+  --link-color: #767676;
+  --link-hover-color: #434343;
   --project-block-hover-color: #f3f3f3;
 
   --clear-material-border: 1px solid rgba(214, 214, 214, 0.5);

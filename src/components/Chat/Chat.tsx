@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ChatMessage } from "../../types/ChatMessage";
 import "./Chat.css";
+import { CDN_ROOT_URL } from "../../constants/globalConstants";
 
 type ChatProps = {
   messages: ChatMessage[];
@@ -23,6 +24,40 @@ export default function Chat({ messages }: ChatProps) {
     }
   }, [messages]);
 
+  const renderMessageContent = (message: ChatMessage) => {
+    if (message.appShowcaseItem) {
+      const { appShowcaseItem } = message;
+      const videoUrl = CDN_ROOT_URL + "portfolio/test_video.MP4";
+      return (
+        <div class="chat__message__content chat__message__content--app-showcase">
+          <video controls={true} class="chat__message__video">
+            <source src={videoUrl} type="video/mp4" />
+          </video>
+          <p>
+            This is <b>{appShowcaseItem.name}</b>. {appShowcaseItem.description}
+          </p>
+          <div class="chat__message__links-container">
+            {appShowcaseItem.links.map((link) => {
+              return (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="chat__message__link"
+                  key={link.url}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      );
+    } else {
+      return <div class="chat__message__content">{message.content}</div>;
+    }
+  };
+
   const renderMessages = () => {
     return messages.map((message) => {
       return (
@@ -38,7 +73,7 @@ export default function Chat({ messages }: ChatProps) {
           </div>
           <div class="chat__message__main">
             <span class="chat__message__author">{message.author}</span>
-            <div class="chat__message__content">{message.content}</div>
+            {renderMessageContent(message)}
           </div>
         </div>
       );

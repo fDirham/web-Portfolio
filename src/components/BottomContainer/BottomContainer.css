@@ -84,6 +84,10 @@ MARK: LINKS
   color: var(--link-color);
 }
 
+.bottom__links-container a:hover {
+  color: var(--link-hover-color);
+}
+
 /*
 MARK: Media queries
 */
@@ -100,6 +104,6 @@ MARK: Media queries
   }
 
   .bottom__links-container {
-    gap: 24px;
+    gap: 32px;
   }
 }
