@@ -1,5 +1,5 @@
 import SideMenuIcon from "../SideMenuIcon";
-import "./style.css";
+import "./Header.css";
 
 export default function Header({
   toggleProjectListMenu,

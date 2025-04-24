@@ -15,14 +15,6 @@
   backdrop-filter: blur(10px); /* Apply blur effect */
 }
 
-/* .bottom__project-list-spacer {
-  width: 250px;
-}
-
-.bottom__project-list-spacer--hidden {
-  width: 0;
-} */
-
 .bottom__content-container {
   width: 100%;
   display: flex;
@@ -90,4 +82,24 @@ MARK: LINKS
 
 .bottom__links-container a {
   color: var(--link-color);
+}
+
+/*
+MARK: Media queries
+*/
+@media screen and (max-width: 624px) {
+  .bottom__input-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--input-color);
+    align-items: center;
+    padding-right: 16px;
+    border-radius: 12px;
+    min-height: 58px;
+    width: calc(100vw - 24px);
+  }
+
+  .bottom__links-container {
+    gap: 24px;
+  }
 }

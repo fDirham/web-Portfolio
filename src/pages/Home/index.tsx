@@ -8,8 +8,8 @@ import {
   URL_HEADSHOT,
 } from "../../constants/globalConstants";
 import BottomContainer from "../../components/BottomContainer";
-import SideMenuIcon from "../../components/SideMenuIcon";
 import Header from "../../components/Header";
+import Chat from "../../components/Chat";
 
 const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   {
@@ -52,24 +52,6 @@ export default function Home() {
     setInputValue("");
   }
 
-  const renderMessages = () => {
-    return messages.map((message) => {
-      return (
-        <div class="chat__message" key={message.id}>
-          <div class="chat__message__leading">
-            <div class="chat__message__avatar-container">
-              <img src={message.avatarUrl} alt={message.author} />
-            </div>
-          </div>
-          <div class="chat__message__main">
-            <span class="chat__message__author">{message.author}</span>
-            <div class="chat__message__content">{message.content}</div>
-          </div>
-        </div>
-      );
-    });
-  };
-
   return (
     <div class="home-container">
       <Header
@@ -80,9 +62,7 @@ export default function Home() {
           show={showProjectListMenu}
           setShow={setShowProjectListMenu}
         />
-        <div class="chat__container">
-          <div class="chat__messages-container">{renderMessages()}</div>
-        </div>
+        <Chat messages={messages} />
       </div>
       <BottomContainer
         inputValue={inputValue}

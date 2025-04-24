@@ -4,7 +4,6 @@ import { LocationProvider, Router, Route, lazy } from "preact-iso";
 import Home from "./pages/Home/index.jsx";
 import "./style.css";
 import { NotFound } from "./pages/_404.js";
-const About = lazy(() => import("./pages/About/index.js"));
 
 export function App() {
   return (

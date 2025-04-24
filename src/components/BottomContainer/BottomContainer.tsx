@@ -1,6 +1,6 @@
-import "./style.css";
 import TextareaAutosize from "react-textarea-autosize";
 import SubmitIcon from "../SubmitIcon";
+import "./BottomContainer.css";
 
 type BottomContainerProps = {
   inputValue: string;

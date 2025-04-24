@@ -24,6 +24,11 @@ MARK: Header
   border-radius: 8px;
 }
 
+.header__side-menu-button:hover {
+  background-color: var(--project-block-hover-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .header__side-menu-text-button {
   display: none;
 }
@@ -47,6 +52,11 @@ MARK: Media queries
     backdrop-filter: blur(10px);
   }
 
+  .header__side-menu-button {
+    width: unset;
+    height: unset;
+  }
+
   .header__side-menu-button__icon {
     display: none;
   }
@@ -57,5 +67,11 @@ MARK: Media queries
     color: var(--on-clear-material-interactable-color);
     padding: 4px 12px;
     border-radius: 4px;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  .header {
+    padding-left: 12px;
   }
 }
