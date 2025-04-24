@@ -23,15 +23,35 @@
   --clear-material-interactable-color: #222;
   --on-clear-material-interactable-color: #fff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --scrollbar-thumb-color: #d4d4d4;
+  --scrollbar-track-color: transparent;
+  --scrollbar-thumb-hover-color: #9e9e9e;
 }
 
 body {
   margin: 0;
+}
+
+html {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--scrollbar-thumb-color); /* For Firefox */
+}
+
+html::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color); /* Track color */
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color); /* Thumb color */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color); /* Thumb hover color */
 }
 
 * {
