@@ -8,6 +8,7 @@ import {
   URL_HEADSHOT,
 } from "../../constants/globalConstants";
 import BottomContainer from "../../components/BottomContainer";
+import SideMenuIcon from "../../components/SideMenuIcon";
 
 const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   {
@@ -69,17 +70,20 @@ export default function Home() {
   };
 
   return (
-    <div class="home">
-      <ProjectListMenu show={showProjectListMenu} />
-      <div class="chat__container">
+    <div class="home-container">
+      <div class="header">
         <button
-          onClick={() => {
-            setShowProjectListMenu(!showProjectListMenu);
-          }}
+          class="header__side-menu-button"
+          onClick={() => setShowProjectListMenu(!showProjectListMenu)}
         >
-          toggle menu
+          <SideMenuIcon class="header__side-menu-button__icon" />
         </button>
-        <div class="chat__messages-container">{renderMessages()}</div>
+      </div>
+      <div class="home-content">
+        <ProjectListMenu show={showProjectListMenu} />
+        <div class="chat__container">
+          <div class="chat__messages-container">{renderMessages()}</div>
+        </div>
       </div>
       <BottomContainer
         inputValue={inputValue}
