@@ -13,9 +13,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.3); /* Optional: subtle border for better definition */
 }
 
-.bottom__project-list-spacer {
+/* .bottom__project-list-spacer {
   width: 250px;
 }
+
+.bottom__project-list-spacer--hidden {
+  width: 0;
+} */
 
 .bottom__content-container {
   width: 100%;
@@ -24,11 +28,11 @@
   align-items: center;
 }
 
-.chat__input-form {
+.bottom__input-form {
   margin-bottom: 8px;
 }
 
-.chat__input-container {
+.bottom__input-container {
   display: flex;
   flex-direction: row;
   background-color: var(--input-color);
@@ -39,7 +43,7 @@
   width: 600px;
 }
 
-.chat__input__textarea {
+.bottom__input__textarea {
   all: unset;
   padding: 8px 0;
   padding-left: 16px;
@@ -49,7 +53,7 @@
   width: 100%;
 }
 
-.chat__input__submit-button {
+.bottom__input__submit-button {
   all: unset;
   cursor: pointer;
 }
@@ -74,7 +78,7 @@
 /*
 MARK: LINKS
 */
-.chat__links-container {
+.bottom__links-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -82,6 +86,6 @@ MARK: LINKS
   gap: 40px;
 }
 
-.chat__links-container a {
+.bottom__links-container a {
   color: var(--link-color);
 }

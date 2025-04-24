@@ -15,18 +15,27 @@ export default function BottomContainer({
   handleInputFormSubmit,
   showProjectListMenu,
 }: BottomContainerProps) {
+  const classNameProjectListSpacer = () => {
+    const base = ["bottom__project-list-spacer"];
+    if (!showProjectListMenu) {
+      base.push("bottom__project-list-spacer--hidden");
+    }
+    return base.join(" ");
+  };
+
   function onInputKeyDown(e: KeyboardEvent) {
     if (e.keyCode == 13 && e.shiftKey == false) {
       e.preventDefault();
       handleInputFormSubmit();
     }
   }
+
   return (
     <div class="bottom-container">
-      <div class="bottom__project-list-spacer"></div>
+      <div class={classNameProjectListSpacer()}></div>
       <div class="bottom__content-container">
-        <form class="chat__input-form" onSubmit={handleInputFormSubmit}>
-          <div class="chat__input-container">
+        <form class="bottom__input-form" onSubmit={handleInputFormSubmit}>
+          <div class="bottom__input-container">
             <TextareaAutosize
               autofocus={false}
               placeholder="Ask anything…"
@@ -36,16 +45,16 @@ export default function BottomContainer({
               value={inputValue}
               onKeyDown={onInputKeyDown}
               onChange={(e) => setInputValue(e.currentTarget.value)}
-              class="chat__input__textarea"
+              class="bottom__input__textarea"
             />
-            <button type="submit" class="chat__input__submit-button">
+            <button type="submit" class="bottom__input__submit-button">
               <div class="submit-button__icon-container">
                 <SubmitIcon class="submit-button__icon" />
               </div>
             </button>
           </div>
         </form>
-        <div class="chat__links-container">
+        <div class="bottom__links-container">
           <a href="">Home</a>
           <a href="">Email</a>
           <a href="">LinkedIn</a>

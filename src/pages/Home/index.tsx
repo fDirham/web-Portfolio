@@ -72,6 +72,13 @@ export default function Home() {
     <div class="home">
       <ProjectListMenu show={showProjectListMenu} />
       <div class="chat__container">
+        <button
+          onClick={() => {
+            setShowProjectListMenu(!showProjectListMenu);
+          }}
+        >
+          toggle menu
+        </button>
         <div class="chat__messages-container">{renderMessages()}</div>
       </div>
       <BottomContainer
