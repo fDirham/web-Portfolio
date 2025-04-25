@@ -1,13 +1,19 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { ChatMessage } from "../../types/ChatMessage";
 import "./Chat.css";
-import { CDN_ROOT_URL } from "../../constants/globalConstants";
-import { formatTextWithBold } from "../../helpers/formatTextWithBold";
+import {
+  CDN_ROOT_URL,
+  NAME_BOT,
+  URL_BOT_PIC,
+} from "../../constants/globalConstants";
+import { formatTextForChat } from "../../helpers/formatTextForChat";
 
 type ChatProps = {
   messages: ChatMessage[];
+  isBotTyping: boolean;
 };
-export default function Chat({ messages }: ChatProps) {
+
+export default function Chat({ messages, isBotTyping }: ChatProps) {
   const mostRecentMessageRef = useRef(null);
   const [mostRecentMessageId, setMostRecentMessageId] = useState<string | null>(
     null
@@ -36,7 +42,7 @@ export default function Chat({ messages }: ChatProps) {
           </video>
           <p>
             This is <b>{appShowcaseItem.name}</b>.{" "}
-            {formatTextWithBold(appShowcaseItem.description)}
+            {formatTextForChat(appShowcaseItem.description)}
           </p>
           <div class="chat__message__links-container">
             {appShowcaseItem.links.map((link) => {
@@ -58,14 +64,24 @@ export default function Chat({ messages }: ChatProps) {
     } else {
       return (
         <div class="chat__message__content">
-          {formatTextWithBold(message.content)}
+          {formatTextForChat(message.content)}
         </div>
       );
     }
   };
 
   const renderMessages = () => {
-    return messages.map((message) => {
+    const msgList = [...messages];
+    if (isBotTyping) {
+      msgList.push({
+        id: "typing",
+        avatarUrl: URL_BOT_PIC,
+        author: NAME_BOT,
+        content: "Typing...",
+      });
+    }
+
+    return msgList.map((message) => {
       return (
         <div
           class="chat__message"

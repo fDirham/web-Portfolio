@@ -1,5 +1,7 @@
 export const SR_WELCOME =
   "👋 Welcome to my <b>interactive portfolio!</b> Before we get started, why don't you tell me a little bit about yourself?";
+export const SR_NORMAL_WELCOME =
+  "👋 Welcome back! Ready to chat with FBD GPT again? \n Remember, type /help for help.";
 export const SR_CHAIN_ONBOARDING_RECRUITER = [
   "Well hello! My name is Fajar Dirham 😎. I'm a <b>fullstack software engineer</b> with <b>3 years of experience</b>.",
   "I'm based in <b>Seattle, WA</b> and willing to relocate around the <b>US</b> 🇺🇸. That said, I'm an immigrant from <b>Indonesia</b> 🇮🇩. I'm a citizen as well, so no need to worry about work visas.",

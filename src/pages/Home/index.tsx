@@ -3,10 +3,10 @@ import { useEffect, useState } from "preact/hooks";
 import ProjectListMenu from "../../components/ProjectListMenu";
 import { ChatMessage } from "../../types/ChatMessage";
 import {
-  NAME_OG_AUTHOR,
+  NAME_BOT,
   NAME_USER,
   URL_BLANK_AVATAR,
-  URL_OG_AUTHOR_PIC,
+  URL_BOT_PIC,
 } from "../../constants/globalConstants";
 import BottomContainer from "../../components/BottomContainer";
 import Header from "../../components/Header";
@@ -19,6 +19,7 @@ import {
   SR_CHAT_APP_REVEAL,
   SR_HELP_REVEAL,
   SR_INPUT_REVEAL,
+  SR_NORMAL_WELCOME,
   SR_PROJECTS_REVEAL__MOBILE,
   SR_PROJECTS_REVEAL__WEB,
   SR_WELCOME,
@@ -36,10 +37,32 @@ export default function Home() {
   const [showBottomContainer, setShowBottomContainer] = useState(false);
   const [showOnboardingOptions, setShowOnboardingOptions] = useState(false);
   const [inputEnabled, setInputEnabled] = useState(false);
+  const [isBotTyping, setBotTyping] = useState(false);
 
   useEffect(() => {
-    startOnboarding();
+    startNormalChat();
+    // startOnboarding();
   }, []);
+
+  // MARK: Normal chat state
+  function startNormalChat() {
+    setShowHeader(true);
+    if (!isMobile) {
+      setShowProjectListMenu(false);
+    }
+    setShowBottomContainer(true);
+    setShowOnboardingOptions(false);
+    setInputEnabled(true);
+
+    setMessages([
+      {
+        id: new Date().toISOString(),
+        avatarUrl: URL_BOT_PIC,
+        author: NAME_BOT,
+        content: SR_NORMAL_WELCOME,
+      },
+    ]);
+  }
 
   // MARK: Onboarding
   async function startOnboarding() {
@@ -47,8 +70,8 @@ export default function Home() {
     setMessages([
       {
         id: new Date().toISOString(),
-        avatarUrl: URL_OG_AUTHOR_PIC,
-        author: NAME_OG_AUTHOR,
+        avatarUrl: URL_BOT_PIC,
+        author: NAME_BOT,
         content: SR_WELCOME,
       },
     ]);
@@ -62,11 +85,12 @@ export default function Home() {
     await waitDelay(1);
     await addMessageContentAndWait(option, false);
 
-    await addMessageContentAndWait("Typing...", true);
+    setBotTyping(true);
+    await waitDelay(3);
 
     switch (option) {
       case UserIdentity.RECRUITER:
-        await chainAddMessageContent(SR_CHAIN_ONBOARDING_RECRUITER, true, true);
+        await chainAddMessageContent(SR_CHAIN_ONBOARDING_RECRUITER, true);
     }
 
     await addMessageContentAndWait(SR_CHAT_APP_REVEAL, true);
@@ -82,7 +106,9 @@ export default function Home() {
       await addMessageContentAndWait(SR_PROJECTS_REVEAL__WEB, true);
     }
 
+    setBotTyping(false);
     await addMessageContentAndWait(SR_HELP_REVEAL, true);
+
     setInputEnabled(true);
   }
 
@@ -107,9 +133,9 @@ export default function Home() {
   function handleAppClick(app: AppShowcaseItem) {
     addMessage({
       id: new Date().toISOString(),
-      avatarUrl: URL_OG_AUTHOR_PIC,
+      avatarUrl: URL_BOT_PIC,
       content: "",
-      author: NAME_OG_AUTHOR,
+      author: NAME_BOT,
       appShowcaseItem: app,
     });
 
@@ -130,8 +156,8 @@ export default function Home() {
   function addMessageContent(content: string, isBot: boolean) {
     addMessage({
       id: new Date().toISOString(),
-      avatarUrl: isBot ? URL_OG_AUTHOR_PIC : URL_BLANK_AVATAR,
-      author: isBot ? NAME_OG_AUTHOR : NAME_USER,
+      avatarUrl: isBot ? URL_BOT_PIC : URL_BLANK_AVATAR,
+      author: isBot ? NAME_BOT : NAME_USER,
       content: content,
     });
   }
@@ -139,26 +165,18 @@ export default function Home() {
   async function addMessageContentAndWait(content: string, isBot: boolean) {
     addMessage({
       id: new Date().toISOString(),
-      avatarUrl: isBot ? URL_OG_AUTHOR_PIC : URL_BLANK_AVATAR,
-      author: isBot ? NAME_OG_AUTHOR : NAME_USER,
+      avatarUrl: isBot ? URL_BOT_PIC : URL_BLANK_AVATAR,
+      author: isBot ? NAME_BOT : NAME_USER,
       content: content,
     });
     await waitForUserToReadContent(content);
   }
 
-  async function chainAddMessageContent(
-    contentList: string[],
-    isBot: boolean,
-    replaceFirst: boolean = false
-  ) {
+  async function chainAddMessageContent(contentList: string[], isBot: boolean) {
     for (let i = 0; i < contentList.length; i++) {
       const msgContent = contentList[i];
 
-      if (i == 0 && replaceFirst) {
-        replaceLastMessageContent(msgContent, isBot);
-      } else {
-        addMessageContent(msgContent, isBot);
-      }
+      addMessageContent(msgContent, isBot);
 
       await waitForUserToReadContent(msgContent);
     }
@@ -176,8 +194,8 @@ export default function Home() {
   function replaceLastMessageContent(content: string, isBot: boolean) {
     replaceLastMessage({
       id: new Date().toISOString(),
-      avatarUrl: isBot ? URL_OG_AUTHOR_PIC : URL_BLANK_AVATAR,
-      author: isBot ? NAME_OG_AUTHOR : NAME_USER,
+      avatarUrl: isBot ? URL_BOT_PIC : URL_BLANK_AVATAR,
+      author: isBot ? NAME_BOT : NAME_USER,
       content: content,
     });
   }
@@ -205,7 +223,7 @@ export default function Home() {
           setShow={setShowProjectListMenu}
           onAppClick={handleAppClick}
         />
-        <Chat messages={messages} />
+        <Chat messages={messages} isBotTyping={isBotTyping} />
       </div>
       <OnboardingOptions
         show={showOnboardingOptions}

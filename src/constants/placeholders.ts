@@ -1,16 +1,12 @@
 import { ChatMessage } from "../types/ChatMessage";
-import {
-  NAME_OG_AUTHOR,
-  URL_BLANK_AVATAR,
-  URL_OG_AUTHOR_PIC,
-} from "./globalConstants";
+import { NAME_BOT, URL_BLANK_AVATAR, URL_BOT_PIC } from "./globalConstants";
 
 export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   {
     id: "one",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
-    content: `👋 Welcome to my portfolio! My name is ${NAME_OG_AUTHOR}. Before we get started, tell me a little about yourself.`,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
+    content: `👋 Welcome to my portfolio! My name is ${NAME_BOT}. Before we get started, tell me a little about yourself.`,
   },
   {
     id: "two",
@@ -20,8 +16,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "three",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content: "That's great! Are you looking for a specific skill set?",
   },
   {
@@ -32,8 +28,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "five",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content:
       "Awesome! I specialize in front-end development. Let me show you some projects.",
   },
@@ -45,8 +41,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "seven",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content: "I primarily work with React, TypeScript, and Preact.",
   },
   {
@@ -57,8 +53,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "nine",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content:
       "Yes, I ensure all my projects are mobile-friendly and responsive.",
   },
@@ -70,8 +66,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "eleven",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content:
       "Sure! I once built a real-time chat app with WebSocket integration.",
   },
@@ -83,8 +79,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "thirteen",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content:
       "The hardest part was ensuring scalability and handling edge cases.",
   },
@@ -96,8 +92,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "fifteen",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content:
       "My favorite project is this portfolio! It’s a blend of creativity and functionality.",
   },
@@ -109,8 +105,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "seventeen",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content: "Absolutely! I enjoy collaborating and learning from others.",
   },
   {
@@ -121,8 +117,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "nineteen",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content:
       "I break problems into smaller tasks and tackle them systematically.",
   },
@@ -134,8 +130,8 @@ export const PLACEHOLDER_MESSAGES: ChatMessage[] = [
   },
   {
     id: "twenty-one",
-    avatarUrl: URL_OG_AUTHOR_PIC,
-    author: NAME_OG_AUTHOR,
+    avatarUrl: URL_BOT_PIC,
+    author: NAME_BOT,
     content: "Thank you! Feel free to reach out if you have any questions.",
   },
 ];
