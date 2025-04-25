@@ -9,7 +9,14 @@ type HeaderProps = {
 
 export default function Header({ toggleProjectListMenu, show }: HeaderProps) {
   return (
-    <FadeAnimWrapper show={show}>
+    <FadeAnimWrapper
+      show={show}
+      customClasses={[
+        "header-animator",
+        "header-animator--show",
+        "header-animator--hide",
+      ]}
+    >
       <div class="header">
         <button
           class="header__side-menu-button"

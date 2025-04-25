@@ -174,11 +174,8 @@ MARK: Project list
     bottom: 0;
     z-index: 3;
     padding: 0 20px;
-    padding-top: 32px;
 
-    border-right: var(--clear-material-border);
-    background-color: var(--clear-material-color);
-    backdrop-filter: blur(10px);
+    background-color: var(--surface-color);
   }
 
   .pl-menu__container--hidden {
@@ -189,7 +186,7 @@ MARK: Project list
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 64px;
+    height: 72px;
   }
 
   .pl-menu__header__close-button {
@@ -205,6 +202,24 @@ MARK: Project list
   }
 
   .project-list {
-    height: calc(100vh - 120px);
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  .pl-menu__container {
+    width: 100vw;
+  }
+
+  .pl-menu__container--hidden {
+    left: calc(-100vw - 100px);
+  }
+
+  .project-list {
+    gap: 32px;
+  }
+
+  .project-block {
+    width: 100%;
   }
 }
