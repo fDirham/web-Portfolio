@@ -1,8 +1,37 @@
-.bottom-container {
+.bottom-container-animator {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.bottom-container-animator--show {
+  animation: bottom-container-enter 0.5s ease;
+}
+
+.bottom-container-animator--fade {
+  animation: bottom-container-leave 0.5s ease;
+}
+
+@keyframes bottom-container-enter {
+  from {
+    bottom: -200px;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes bottom-container-leave {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: -200px;
+  }
+}
+
+.bottom-container {
   z-index: 1;
   padding-bottom: 20px;
   padding-top: 20px;
@@ -52,6 +81,10 @@
   cursor: pointer;
 }
 
+.bottom__input__submit-button:disabled {
+  cursor: unset;
+}
+
 .submit-button__icon-container {
   background-color: var(--input-interactable-color);
   display: flex;
@@ -80,11 +113,11 @@ MARK: LINKS
   gap: 40px;
 }
 
-.bottom__links-container a {
+.bottom__link {
   color: var(--link-color);
 }
 
-.bottom__links-container a:hover {
+.bottom__link:hover {
   color: var(--link-hover-color);
 }
 

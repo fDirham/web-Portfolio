@@ -1,0 +1,66 @@
+.onboarding-options-container {
+  position: fixed;
+  z-index: 1;
+  top: 270px;
+  left: 50%;
+  translate: -50% 0;
+  width: 600px;
+  padding-left: 56px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.onboarding-prompt {
+  margin-bottom: 12px;
+}
+
+.onboarding-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.onboarding-option-button {
+  all: unset;
+  flex-shrink: 0;
+
+  background-color: var(--input-interactable-color);
+  color: var(--on-input-interactable-color);
+  cursor: pointer;
+
+  padding: 8px 16px;
+  border-radius: 8px;
+  animation: onboarding-option-show 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+@keyframes onboarding-option-show {
+  0% {
+    scale: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.onboarding-option-button:hover {
+  padding: 12px 20px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 624px) {
+  .onboarding-options-container {
+    width: 100vw;
+    padding: 0 16px;
+  }
+
+  .onboarding-options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

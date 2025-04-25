@@ -6,4 +6,5 @@ export type ChatMessage = {
   author: string;
   content: string;
   appShowcaseItem?: AppShowcaseItem;
+  isLoading?: boolean;
 };

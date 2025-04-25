@@ -3,7 +3,7 @@
 .pl-menu__container {
   width: 360px;
   flex-shrink: 0;
-  transition: width 0.2s ease;
+  transition: width 0.4s ease;
 }
 
 .bottom__project-list-spacer--hidden,

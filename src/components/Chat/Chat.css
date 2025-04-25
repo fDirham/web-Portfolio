@@ -19,6 +19,16 @@
 .chat__message {
   display: grid;
   grid-template-columns: 40px auto;
+  animation: chat__message__fadeIn 0.5s ease-in-out;
+}
+
+@keyframes chat__message__fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .chat__message__avatar-container {
@@ -46,9 +56,14 @@
   font-weight: 600;
 }
 
+.chat__message__content-wrapper {
+  overflow: hidden;
+}
+
 .chat__message__content {
   font-size: 16px;
   font-weight: 400;
+  width: 544px;
 }
 
 .chat__message__content--app-showcase {
@@ -93,6 +108,15 @@ MARK: Media queries
 @media screen and (max-width: 624px) {
   .chat__messages-container {
     width: 100vw;
-    padding: 16px;
+    padding: 0 16px;
+  }
+
+  .chat__message__content {
+    width: calc(100vw - 32px - 56px);
+  }
+
+  .chat__container {
+    padding-top: 70px;
+    padding-bottom: 200px;
   }
 }

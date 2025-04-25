@@ -1,17 +1,24 @@
+import FadeAnimWrapper from "../FadeAnimWrapper";
 import SideMenuIcon from "../SideMenuIcon";
 import "./Header.css";
 
-export default function Header({
-  toggleProjectListMenu,
-}: {
+type HeaderProps = {
   toggleProjectListMenu: () => void;
-}) {
+  show: boolean;
+};
+
+export default function Header({ toggleProjectListMenu, show }: HeaderProps) {
   return (
-    <div class="header">
-      <button class="header__side-menu-button" onClick={toggleProjectListMenu}>
-        <SideMenuIcon class="header__side-menu-button__icon" />
-        <div class="header__side-menu-text-button">Projects</div>
-      </button>
-    </div>
+    <FadeAnimWrapper show={show}>
+      <div class="header">
+        <button
+          class="header__side-menu-button"
+          onClick={toggleProjectListMenu}
+        >
+          <SideMenuIcon class="header__side-menu-button__icon" />
+          <div class="header__side-menu-text-button">Projects</div>
+        </button>
+      </div>
+    </FadeAnimWrapper>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { ChatMessage } from "../../types/ChatMessage";
 import "./Chat.css";
 import { CDN_ROOT_URL } from "../../constants/globalConstants";
+import { formatTextWithBold } from "../../helpers/formatTextWithBold";
 
 type ChatProps = {
   messages: ChatMessage[];
@@ -34,7 +35,8 @@ export default function Chat({ messages }: ChatProps) {
             <source src={videoUrl} type="video/mp4" />
           </video>
           <p>
-            This is <b>{appShowcaseItem.name}</b>. {appShowcaseItem.description}
+            This is <b>{appShowcaseItem.name}</b>.{" "}
+            {formatTextWithBold(appShowcaseItem.description)}
           </p>
           <div class="chat__message__links-container">
             {appShowcaseItem.links.map((link) => {
@@ -54,7 +56,11 @@ export default function Chat({ messages }: ChatProps) {
         </div>
       );
     } else {
-      return <div class="chat__message__content">{message.content}</div>;
+      return (
+        <div class="chat__message__content">
+          {formatTextWithBold(message.content)}
+        </div>
+      );
     }
   };
 
@@ -73,7 +79,9 @@ export default function Chat({ messages }: ChatProps) {
           </div>
           <div class="chat__message__main">
             <span class="chat__message__author">{message.author}</span>
-            {renderMessageContent(message)}
+            <div class="chat__message__content-wrapper">
+              {renderMessageContent(message)}
+            </div>
           </div>
         </div>
       );

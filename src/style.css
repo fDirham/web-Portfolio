@@ -97,6 +97,13 @@ main {
   color: var(--on-surface-color);
 }
 
+.clear-material {
+  background-color: var(--clear-material-color);
+  border: var(--clear-material-border);
+  color: var(--on-clear-material-color);
+  backdrop-filter: blur(10px);
+}
+
 * {
   box-sizing: border-box;
 }

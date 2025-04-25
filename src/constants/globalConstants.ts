@@ -4,3 +4,4 @@ export const URL_OG_AUTHOR_PIC = CDN_ROOT_URL + "shared/fbd_headshot-64x64.jpg";
 export const URL_BLANK_AVATAR = CDN_ROOT_URL + "shared/blank_avatar-64x64.jpg";
 export const URL_SUBMIT_ICON = CDN_ROOT_URL + "shared/submit_icon.svg";
 export const NAME_OG_AUTHOR = "Fajar Dirham";
+export const NAME_USER = "You";
