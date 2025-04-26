@@ -15,6 +15,10 @@ import { AppShowcaseItem } from "../../types/AppShowcaseItem";
 import OnboardingOptions from "../../components/OnboardingOptions";
 import { UserIdentity } from "../../types/UserIdentity";
 import {
+  SR_CHAIN_JUST_BROWSING,
+  SR_CHAIN_ONBOARDING_CO_FOUNDER,
+  SR_CHAIN_ONBOARDING_CONTRACTOR,
+  SR_CHAIN_ONBOARDING_ENGINEER,
   SR_CHAIN_ONBOARDING_RECRUITER,
   SR_CHAT_APP_REVEAL,
   SR_HELP_REVEAL,
@@ -40,8 +44,8 @@ export default function Home() {
   const [isBotTyping, setBotTyping] = useState(false);
 
   useEffect(() => {
-    startNormalChat();
-    // startOnboarding();
+    // startNormalChat();
+    startOnboarding();
   }, []);
 
   // MARK: Normal chat state
@@ -88,10 +92,26 @@ export default function Home() {
     setBotTyping(true);
     await waitDelay(3);
 
+    let chainMsg: string[] = [];
     switch (option) {
       case UserIdentity.RECRUITER:
-        await chainAddMessageContent(SR_CHAIN_ONBOARDING_RECRUITER, true);
+        chainMsg = SR_CHAIN_ONBOARDING_RECRUITER;
+        break;
+      case UserIdentity.ENGINEER:
+        chainMsg = SR_CHAIN_ONBOARDING_ENGINEER;
+        break;
+      case UserIdentity.LOOKING_FOR_CONTRACTOR:
+        chainMsg = SR_CHAIN_ONBOARDING_CONTRACTOR;
+        break;
+      case UserIdentity.CO_FOUNDER:
+        chainMsg = SR_CHAIN_ONBOARDING_CO_FOUNDER;
+        break;
+      case UserIdentity.JUST_BROWSING:
+        chainMsg = SR_CHAIN_JUST_BROWSING;
+        break;
     }
+
+    await chainAddMessageContent(chainMsg, true);
 
     await addMessageContentAndWait(SR_CHAT_APP_REVEAL, true);
 
