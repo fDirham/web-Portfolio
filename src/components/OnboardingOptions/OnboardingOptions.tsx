@@ -26,7 +26,7 @@ export default function OnboardingOptions({
   };
 
   return (
-    <FadeAnimWrapper show={show} startAnimDuration={1.5} endAnimDuration={1}>
+    <FadeAnimWrapper show={show} startAnimDuration={1} endAnimDuration={1}>
       <div class="onboarding-options-container">
         <span class="onboarding-prompt">Your answer:</span>
         <div class={"onboarding-options"}>{renderOptions()}</div>

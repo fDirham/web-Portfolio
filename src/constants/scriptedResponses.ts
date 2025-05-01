@@ -7,22 +7,21 @@ export const SR_CHAIN_ONBOARDING_RECRUITER = [
   "I have over 1 year of experience with each of the following technologies: React, React Native, Typescript, JavaScript, Swift, Python, Java, AWS, and Firebase.",
   "I am currently running my own startup, building apps and running a client services business.",
   "Before that, I worked at Amazon and worked on high impact projects such as <b>Goodreads Ratings</b>, a feature that has 100 million active users at it's peak.",
-  "My main values are: independence, curiosity, and user-obsession 🤠.",
+  "My main values are: <b>independence, curiosity</b>, and <b>user-obsession</b>.",
   "I'm based in <b>Seattle, WA</b> and willing to relocate around the <b>US</b> 🇺🇸. I'm also an immigrant from <b>Indonesia</b> 🇮🇩. I am a US citizen.",
 ];
 
 export const SR_CHAIN_ONBOARDING_ENGINEER = [
   "Well hello! My name is Fajar Dirham 😎. I consider myself a generalist programmer and I like building web and mobile apps.",
-  "I prefer <b>front end</b> dev work, with tons of experience in native iOS dev and React based web dev. I'm more of a prototype fast kind of guy.",
-  "If I HAVE to work on the backend 🙄, I have experience with Python and Java working in large archaic codebases. I also have experience using cloud services like AWS and GCP. Services like Firebase are my go to for fast prototyping.",
+  "I prefer <b>front end</b> dev work, with tons of experience in native iOS dev and React based web dev.",
+  "If I HAVE to work on the backend 🙄, I have experience with Python and Java working in large archaic codebases. I also have experience using cloud services like AWS and GCP. Services like Firebase are my go to for my projects.",
   "Btw, this whole portfolio was built using Preact and I tried to make it as simple as possible: not too many components, no complicated state management, and 99% of animations and styling done by CSS.",
-  "If we work together one day, just know that you can count on me to work hard and to work together 🫡.",
-  "Most of my fondest memories coding are when I worked with other people in hackathons.",
+  "If we work together one day, just know that you can count on me to work hard, carry my own weight, and collaborate 🫡.",
 ];
 
 export const SR_CHAIN_ONBOARDING_CONTRACTOR = [
   "Well hello! My name is Fajar Dirham 😎. I have extensive experience in building mobile and web apps end to end. Especially apps that involve <b>AI</b>.",
-  "I'm based in Seattle, WA, USA 🇺🇸 and you can trust me to <b>communicate well</b> and deliver quality work on time.",
+  "I'm based in Seattle, WA, USA 🇺🇸 and you can trust me to <b>communicate well</b> and <b>deliver quality work on time</b>.",
   "Later I will show you my past work for you to see for yourself the quality of my work.",
   "In the past, I have worked with big tech companies and startups alike.",
   "As an entrepreneur myself, I can easily understand your business needs and accomodate special requirements.",

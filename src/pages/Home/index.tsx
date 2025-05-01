@@ -5,8 +5,9 @@ import { ChatMessage } from "../../types/ChatMessage";
 import {
   NAME_BOT,
   NAME_USER,
+  PRELOAD_IMG_SRC_LIST,
   URL_BLANK_AVATAR,
-  URL_BOT_PIC,
+  URL_BOT_AVATAR,
 } from "../../constants/globalConstants";
 import BottomContainer from "../../components/BottomContainer";
 import Header from "../../components/Header";
@@ -29,10 +30,13 @@ import {
   SR_WELCOME,
 } from "../../constants/scriptedResponses";
 import useWindowSize from "../../hooks/useWindowSize";
+import usePreloadImages from "../../hooks/usePreloadImages";
 
 export default function Home() {
   const windowSize = useWindowSize();
   const isMobile = windowSize.width <= 984;
+
+  usePreloadImages(PRELOAD_IMG_SRC_LIST);
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -42,11 +46,15 @@ export default function Home() {
   const [showOnboardingOptions, setShowOnboardingOptions] = useState(false);
   const [inputEnabled, setInputEnabled] = useState(false);
   const [isBotTyping, setBotTyping] = useState(false);
+  const [isStarted, setStarted] = useState(false);
 
   useEffect(() => {
     // startNormalChat();
-    startOnboarding();
-  }, []);
+    if (!isStarted) {
+      startOnboarding();
+      setStarted(true);
+    }
+  }, [isStarted]);
 
   // MARK: Normal chat state
   function startNormalChat() {
@@ -61,7 +69,7 @@ export default function Home() {
     setMessages([
       {
         id: new Date().toISOString(),
-        avatarUrl: URL_BOT_PIC,
+        avatarUrl: URL_BOT_AVATAR,
         author: NAME_BOT,
         content: SR_NORMAL_WELCOME,
       },
@@ -70,16 +78,7 @@ export default function Home() {
 
   // MARK: Onboarding
   async function startOnboarding() {
-    await waitDelay(0.5);
-    setMessages([
-      {
-        id: new Date().toISOString(),
-        avatarUrl: URL_BOT_PIC,
-        author: NAME_BOT,
-        content: SR_WELCOME,
-      },
-    ]);
-    await waitDelay(2);
+    addMessageContent(SR_WELCOME, true);
     setShowOnboardingOptions(true);
   }
 
@@ -153,7 +152,7 @@ export default function Home() {
   function handleAppClick(app: AppShowcaseItem) {
     addMessage({
       id: new Date().toISOString(),
-      avatarUrl: URL_BOT_PIC,
+      avatarUrl: URL_BOT_AVATAR,
       content: "",
       author: NAME_BOT,
       appShowcaseItem: app,
@@ -176,7 +175,7 @@ export default function Home() {
   function addMessageContent(content: string, isBot: boolean) {
     addMessage({
       id: new Date().toISOString(),
-      avatarUrl: isBot ? URL_BOT_PIC : URL_BLANK_AVATAR,
+      avatarUrl: isBot ? URL_BOT_AVATAR : URL_BLANK_AVATAR,
       author: isBot ? NAME_BOT : NAME_USER,
       content: content,
     });
@@ -185,7 +184,7 @@ export default function Home() {
   async function addMessageContentAndWait(content: string, isBot: boolean) {
     addMessage({
       id: new Date().toISOString(),
-      avatarUrl: isBot ? URL_BOT_PIC : URL_BLANK_AVATAR,
+      avatarUrl: isBot ? URL_BOT_AVATAR : URL_BLANK_AVATAR,
       author: isBot ? NAME_BOT : NAME_USER,
       content: content,
     });
@@ -202,28 +201,10 @@ export default function Home() {
     }
   }
 
-  function replaceLastMessage(message: ChatMessage) {
-    setMessages((msgs) => {
-      const newMessages = [...msgs];
-      newMessages.pop();
-      newMessages.push(message);
-      return newMessages;
-    });
-  }
-
-  function replaceLastMessageContent(content: string, isBot: boolean) {
-    replaceLastMessage({
-      id: new Date().toISOString(),
-      avatarUrl: isBot ? URL_BOT_PIC : URL_BLANK_AVATAR,
-      author: isBot ? NAME_BOT : NAME_USER,
-      content: content,
-    });
-  }
-
   async function waitForUserToReadContent(content: string) {
     // Around 4 words per second
     const words = content.split(" ");
-    const delay = Math.ceil(words.length / 4);
+    const delay = Math.ceil(words.length / 7);
     await waitDelay(delay);
   }
 
