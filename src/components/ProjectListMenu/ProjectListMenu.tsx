@@ -7,12 +7,14 @@ type ProjectListMenuProps = {
   show: boolean;
   setShow: (show: boolean) => void;
   onAppClick: (app: AppShowcaseItem) => void;
+  inputEnabled: boolean;
 };
 
 export default function ProjectListMenu({
   show,
   setShow,
   onAppClick,
+  inputEnabled,
 }: ProjectListMenuProps) {
   const classNamePseudoSpacer = () => {
     const base = ["pl-menu-pseudo-spacer"];
@@ -36,7 +38,15 @@ export default function ProjectListMenu({
       const projectBlockClass = projectBlockClassList.join(" ");
 
       return (
-        <div class={projectBlockClass} key={i} onClick={() => onAppClick(app)}>
+        <div
+          class={projectBlockClass}
+          key={i}
+          onClick={() => {
+            if (inputEnabled) {
+              onAppClick(app);
+            }
+          }}
+        >
           <div class="project-block__img-container">
             <img src={app.iconUrl} alt="" />
           </div>

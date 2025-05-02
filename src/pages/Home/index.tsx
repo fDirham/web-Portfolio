@@ -126,9 +126,8 @@ export default function Home() {
     }
 
     setBotTyping(false);
-    await addMessageContentAndWait(SR_HELP_REVEAL, true);
-
     setInputEnabled(true);
+    await addMessageContentAndWait(SR_HELP_REVEAL, true);
   }
 
   // MARK: Interactions
@@ -204,7 +203,7 @@ export default function Home() {
   async function waitForUserToReadContent(content: string) {
     // Around 4 words per second
     const words = content.split(" ");
-    const delay = Math.ceil(words.length / 7);
+    const delay = Math.ceil(words.length / 5);
     await waitDelay(delay);
   }
 
@@ -223,6 +222,7 @@ export default function Home() {
           show={showProjectListMenu}
           setShow={setShowProjectListMenu}
           onAppClick={handleAppClick}
+          inputEnabled={inputEnabled}
         />
         <Chat messages={messages} isBotTyping={isBotTyping} />
       </div>
@@ -236,6 +236,7 @@ export default function Home() {
         handleInputFormSubmit={handleInputFormSubmit}
         showProjectListMenu={showProjectListMenu}
         show={showBottomContainer}
+        inputEnabled={inputEnabled}
       />
     </div>
   );

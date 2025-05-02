@@ -9,6 +9,7 @@ type BottomContainerProps = {
   handleInputFormSubmit: (e?: SubmitEvent) => void;
   showProjectListMenu: boolean;
   show: boolean;
+  inputEnabled: boolean;
 };
 
 export default function BottomContainer({
@@ -17,6 +18,7 @@ export default function BottomContainer({
   handleInputFormSubmit,
   showProjectListMenu,
   show,
+  inputEnabled,
 }: BottomContainerProps) {
   const classNameProjectListSpacer = () => {
     const base = ["bottom__project-list-spacer"];
@@ -49,7 +51,9 @@ export default function BottomContainer({
             <div class="bottom__input-container">
               <TextareaAutosize
                 autofocus={false}
-                placeholder="Ask anything…"
+                placeholder={
+                  inputEnabled ? "Ask anything..." : "Please wait..."
+                }
                 autocomplete="off"
                 rows={2}
                 data-1p-ignore="true"
@@ -57,6 +61,7 @@ export default function BottomContainer({
                 onKeyDown={onInputKeyDown}
                 onChange={(e) => setInputValue(e.currentTarget.value)}
                 class="bottom__input__textarea"
+                disabled={!inputEnabled}
               />
               <button type="submit" class="bottom__input__submit-button">
                 <div class="submit-button__icon-container">
