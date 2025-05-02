@@ -114,6 +114,7 @@ MARK: LINKS
 }
 
 .bottom__link {
+  font-size: 12px;
   color: var(--link-color);
 }
 
@@ -137,6 +138,6 @@ MARK: Media queries
   }
 
   .bottom__links-container {
-    gap: 32px;
+    gap: 24px;
   }
 }

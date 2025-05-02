@@ -76,6 +76,9 @@ export default function BottomContainer({
               LinkedIn
             </a>
             <a href="" class="bottom__link">
+              GitHub
+            </a>
+            <a href="" class="bottom__link">
               Resume
             </a>
           </div>

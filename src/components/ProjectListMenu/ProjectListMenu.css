@@ -31,7 +31,8 @@ MARK: Project list
 .project-list {
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: calc(100vh - 120px - 170px);
   padding-bottom: 120px;
   gap: 20px;
@@ -89,7 +90,7 @@ MARK: Project list
   gap: 16px;
   width: 300px;
   cursor: pointer;
-  padding: 0;
+  padding: 4px;
   transition: padding 0.2s ease, background-color 0.2s ease,
     box-shadow 0.2s ease;
   border-radius: 6px;
@@ -112,6 +113,7 @@ MARK: Project list
   height: 32px;
   border-radius: 4px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .project-block__img-container img {

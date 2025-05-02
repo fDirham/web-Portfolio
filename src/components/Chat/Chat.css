@@ -119,4 +119,9 @@ MARK: Media queries
     padding-top: 86px;
     padding-bottom: 200px;
   }
+
+  .chat__message__video {
+    max-width: 100%;
+    height: auto;
+  }
 }

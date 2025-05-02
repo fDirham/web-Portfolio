@@ -1,5 +1,20 @@
 import { AppShowcaseItem } from "../types/AppShowcaseItem";
-import { URL_ICON_PROFFY, URL_VID_PROFFY } from "./globalConstants";
+import {
+  URL_ICON_ASR,
+  URL_ICON_DUCK_BLOCK,
+  URL_ICON_JOTTER,
+  URL_ICON_JUST_FOCUS,
+  URL_ICON_NEKO_FOCUS,
+  URL_ICON_PROFFY,
+  URL_ICON_ROCKET_PIXELS,
+  URL_VID_ASR,
+  URL_VID_DUCK_BLOCK,
+  URL_VID_JOTTER,
+  URL_VID_JUST_FOCUS,
+  URL_VID_NEKO_FOCUS,
+  URL_VID_PROFFY,
+  URL_VID_ROCKET_PIXELS,
+} from "./globalConstants";
 
 export const APP_LIST: AppShowcaseItem[] = [
   {
@@ -14,44 +29,84 @@ export const APP_LIST: AppShowcaseItem[] = [
       { label: "App Store", url: "https://apps.apple.com/app/id6742863940" },
     ],
   },
-  // {
-  //   name: "NekoFocus",
-  //   shortDescription: "Cat themed focus app",
-  //   description:
-  //     "Cat themed productivity app + pomodoro timer. Built with SwiftUI and used SpriteKit for animations. Gained users through TikTok + in person events.",
-  //   year: "2025",
-  //   videoUrl: "https://www.youtube.com/watch?v=2e8v4g0j7xA",
-  //   iconUrl: CDN_ROOT_URL + "nekotimer/icon-64x64.jpg",
-  //   links: [
-  //     { label: "Website", url: "https://proffy.ai" },
-  //     { label: "App Store", url: "https://apps.apple.com/app/id1234567890" },
-  //     { label: "GitHub", url: "" },
-  //   ],
-  // },
-  // {
-  //   name: "Rocket Pixels",
-  //   shortDescription: "Rocket themed mobile game",
-  //   description: "A rocket and asteroid themed runner game made with Godot.",
-  //   year: "2024",
-  //   videoUrl: "https://www.youtube.com/watch?v=example1",
-  //   iconUrl: CDN_ROOT_URL + "tasktamer/icon-64x64.jpg",
-  //   links: [
-  //     { label: "Website", url: "https://tasktamer.com" },
-  //     { label: "App Store", url: "https://apps.apple.com/app/id1234567891" },
-  //     { label: "GitHub", url: "https://github.com/example/tasktamer" },
-  //   ],
-  // },
-  // {
-  //   name: "DuckBlock",
-  //   shortDescription: "App blocker focus app",
-  //   description: "An app that blocks other apps so you can keep focus",
-  //   year: "2024",
-  //   videoUrl: "https://www.youtube.com/watch?v=example2",
-  //   iconUrl: CDN_ROOT_URL + "fittrack/icon-64x64.jpg",
-  //   links: [
-  //     { label: "Website", url: "https://fittrack.com" },
-  //     { label: "App Store", url: "https://apps.apple.com/app/id1234567892" },
-  //     { label: "GitHub", url: "https://github.com/example/fittrack" },
-  //   ],
-  // },
+  {
+    name: "NekoFocus",
+    shortDescription: "Cat themed focus app",
+    description:
+      "A cat themed productivity app + pomodoro timer. Built with SwiftUI and used SpriteKit for animations. Gained users through TikTok + in person events.",
+    year: "2025",
+    videoUrl: URL_VID_NEKO_FOCUS,
+    iconUrl: URL_ICON_NEKO_FOCUS,
+    links: [
+      { label: "App Store", url: "https://apps.apple.com/app/id6737785097" },
+    ],
+  },
+  {
+    name: "Rocket Pixels",
+    shortDescription: "Rocket themed iOS game",
+    description: "A rocket and asteroid themed runner game made with Godot.",
+    year: "2024",
+    videoUrl: URL_VID_ROCKET_PIXELS,
+    iconUrl: URL_ICON_ROCKET_PIXELS,
+    links: [
+      { label: "App Store", url: "https://apps.apple.com/app/id6701996449" },
+    ],
+  },
+  {
+    name: "Jotter",
+    shortDescription: "Lightning fast note taking app",
+    description:
+      "A note taking app with a focus on keyboard shortcuts and speed. Built with electron JS, mainly for MacOS. It works by being an overlay over your screen when needed.",
+    year: "2024",
+    videoUrl: URL_VID_JOTTER,
+    iconUrl: URL_ICON_JOTTER,
+    links: [
+      {
+        label: "Github",
+        url: "https://github.com/fDirham/electron-Jotter-quick_note_taking",
+      },
+    ],
+  },
+  {
+    name: "DuckBlock",
+    shortDescription: "App blocking focus app",
+    description:
+      "An app that blocks other apps on a schedule so you can focus. It works by grouping apps into block groups then assigning a block schedule. Built with Swift.",
+    year: "2024",
+    videoUrl: URL_VID_DUCK_BLOCK,
+    iconUrl: URL_ICON_DUCK_BLOCK,
+    links: [
+      {
+        label: "Github",
+        url: "https://github.com/fDirham/iOS-DuckBlock-app_blocking",
+      },
+    ],
+  },
+  {
+    name: "Just Focus",
+    shortDescription: "Pomodoro timer in your mac menu bar",
+    description:
+      "A native mac OS app that is a pomodoro timer in your menu bar. It is a simple timer that you can start and stop. Built with Swift.",
+    year: "2024",
+    videoUrl: URL_VID_JUST_FOCUS,
+    iconUrl: URL_ICON_JUST_FOCUS,
+    links: [
+      { label: "App Store", url: "https://apps.apple.com/app/id6615067696" },
+    ],
+  },
+  {
+    name: "AppStore Researcher",
+    shortDescription: "An app research tool",
+    description:
+      "A native mac OS app that scrapes app store data. Used to conduct competitor research. Built with Swift.",
+    year: "2024",
+    videoUrl: URL_VID_ASR,
+    iconUrl: URL_ICON_ASR,
+    links: [
+      {
+        label: "Github",
+        url: "https://github.com/fDirham/macOS-ASR-app_store_researcher",
+      },
+    ],
+  },
 ];
