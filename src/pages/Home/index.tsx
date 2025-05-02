@@ -16,12 +16,16 @@ import { AppShowcaseItem } from "../../types/AppShowcaseItem";
 import OnboardingOptions from "../../components/OnboardingOptions";
 import { UserIdentity } from "../../types/UserIdentity";
 import {
+  SR_BOT_ERROR,
   SR_CHAIN_JUST_BROWSING,
   SR_CHAIN_ONBOARDING_CO_FOUNDER,
   SR_CHAIN_ONBOARDING_CONTRACTOR,
   SR_CHAIN_ONBOARDING_ENGINEER,
   SR_CHAIN_ONBOARDING_RECRUITER,
   SR_CHAT_APP_REVEAL,
+  SR_COMMAND_HELP,
+  SR_COMMAND_NOT_FOUND,
+  SR_FIRST_BOT_CHAT_DISCLAIMER,
   SR_HELP_REVEAL,
   SR_INPUT_REVEAL,
   SR_NORMAL_WELCOME,
@@ -31,6 +35,7 @@ import {
 } from "../../constants/scriptedResponses";
 import useWindowSize from "../../hooks/useWindowSize";
 import usePreloadImages from "../../hooks/usePreloadImages";
+import { portfolioChat } from "../../helpers/backendController";
 
 export default function Home() {
   const windowSize = useWindowSize();
@@ -47,6 +52,7 @@ export default function Home() {
   const [inputEnabled, setInputEnabled] = useState(false);
   const [isBotTyping, setBotTyping] = useState(false);
   const [isStarted, setStarted] = useState(true);
+  const [hasChatted, setHasChatted] = useState(false);
 
   useEffect(() => {
     startNormalChat();
@@ -59,9 +65,7 @@ export default function Home() {
   // MARK: Normal chat state
   function startNormalChat() {
     setShowHeader(true);
-    if (!isMobile) {
-      setShowProjectListMenu(false);
-    }
+    setShowProjectListMenu(isMobile);
     setShowBottomContainer(true);
     setShowOnboardingOptions(false);
     setInputEnabled(true);
@@ -78,8 +82,20 @@ export default function Home() {
 
   // MARK: Onboarding
   async function startOnboarding() {
-    addMessageContent(SR_WELCOME, true);
     setShowOnboardingOptions(true);
+    setShowHeader(false);
+    setShowProjectListMenu(false);
+    setShowBottomContainer(false);
+    setInputEnabled(false);
+
+    setMessages([
+      {
+        id: new Date().toISOString(),
+        avatarUrl: URL_BOT_AVATAR,
+        content: SR_WELCOME,
+        author: NAME_BOT,
+      },
+    ]);
   }
 
   async function handleOnboardingOptionSelect(option: UserIdentity) {
@@ -131,21 +147,85 @@ export default function Home() {
   }
 
   // MARK: Interactions
-  function handleInputFormSubmit(e?: SubmitEvent) {
+  async function handleInputFormSubmit(e?: SubmitEvent) {
     if (e) {
       e.preventDefault();
     }
+
+    // TODO: More sanitization
+    const newContent = inputValue.trim();
 
     const newMessages = [...messages];
     const newMessage: ChatMessage = {
       id: new Date().toISOString(),
       avatarUrl: URL_BLANK_AVATAR,
-      content: inputValue,
-      author: "You",
+      content: newContent,
+      author: NAME_USER,
     };
     newMessages.push(newMessage);
     setMessages(newMessages);
     setInputValue("");
+
+    const isCommand = newContent.startsWith("/");
+    if (isCommand) {
+      const command = newContent.substring(1).toLowerCase();
+      await handleCommand(command);
+    } else {
+      await handleBotChat(newContent, newMessages);
+    }
+  }
+
+  async function handleCommand(command: string) {
+    setBotTyping(true);
+    await waitDelay(1);
+    setBotTyping(false);
+    switch (command) {
+      case "help":
+        await addMessageContentAndWait(SR_COMMAND_HELP, true);
+        break;
+      case "reboard":
+        startOnboarding();
+        break;
+      default:
+        await addMessageContentAndWait(SR_COMMAND_NOT_FOUND, true);
+        break;
+    }
+  }
+
+  async function handleBotChat(newMessage: string, newMessages: ChatMessage[]) {
+    //  Bot chat
+
+    if (!hasChatted) {
+      await addMessageContentAndWait(SR_FIRST_BOT_CHAT_DISCLAIMER, true);
+      setHasChatted(true);
+    }
+
+    setBotTyping(true);
+    await waitDelay(1);
+
+    const prevMessages = newMessages
+      .filter((msg) => !msg.isLoading)
+      .map((msg) => {
+        const role = msg.author === NAME_BOT ? "assistant" : "user";
+        let content = msg.content;
+        if (msg.appShowcaseItem) {
+          content =
+            "This is one of my projects. " + msg.appShowcaseItem.description;
+        }
+
+        return {
+          role,
+          content,
+        };
+      });
+
+    try {
+      const reply = await portfolioChat(newMessage, prevMessages);
+      addMessageContent(reply, true);
+    } catch (error) {
+      addMessageContent(SR_BOT_ERROR, true);
+    }
+    setBotTyping(false);
   }
 
   function handleAppClick(app: AppShowcaseItem) {
@@ -176,7 +256,7 @@ export default function Home() {
       id: new Date().toISOString(),
       avatarUrl: isBot ? URL_BOT_AVATAR : URL_BLANK_AVATAR,
       author: isBot ? NAME_BOT : NAME_USER,
-      content: content,
+      content: content.trim(),
     });
   }
 

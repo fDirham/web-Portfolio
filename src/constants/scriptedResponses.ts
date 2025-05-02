@@ -2,11 +2,13 @@ export const SR_WELCOME =
   "👋 Welcome to my <b>interactive portfolio!</b> Before we get started, why don't you tell me a little bit about yourself?";
 export const SR_NORMAL_WELCOME =
   "👋 Welcome back! Ready to chat with FBD GPT again? \n Remember, type /help for help.";
+
+// MARK: Onboarding chains
 export const SR_CHAIN_ONBOARDING_RECRUITER = [
   "Well hello! My name is Fajar Dirham 😎. I'm a <b>fullstack software engineer</b> with <b>3 years of experience</b>.",
   "I have over 1 year of experience with each of the following technologies: React, React Native, Typescript, JavaScript, Swift, Python, Java, AWS, and Firebase.",
-  "I am currently running my own startup, building apps and running a client services business.",
-  "Before that, I worked at Amazon and worked on high impact projects such as <b>Goodreads Ratings</b>, a feature that has 100 million active users at it's peak.",
+  "I am currently <b>running my own startup</b>, building apps and running a client services business.",
+  "Before that, I worked at <b>Amazon</b> and worked on high impact projects such as Goodreads Ratings, a feature that has <b>100 million active users</b> at it's peak.",
   "My main values are: <b>independence, curiosity</b>, and <b>user-obsession</b>.",
   "I'm based in <b>Seattle, WA</b> and willing to relocate around the <b>US</b> 🇺🇸. I'm also an immigrant from <b>Indonesia</b> 🇮🇩. I am a US citizen.",
 ];
@@ -57,3 +59,19 @@ export const SR_PROJECTS_REVEAL__MOBILE =
   "Tap this button up here to see my projects. Tap on one and I will gladly explain.";
 export const SR_HELP_REVEAL =
   "If you want to know more about what you can do with me, type /help. :)";
+
+// MARK: BOT CHAT
+export const SR_FIRST_BOT_CHAT_DISCLAIMER =
+  "<b>DISCLAIMER: This chat is powered by an LLM and may not be accurate</b>. Trust my resume, the scripted responses, and official communications more than this. Have fun though 😎";
+
+export const SR_BOT_ERROR =
+  "This is embarassing, but something went wrong with my AI brain 😞. Please try again later. Let me know by contacting me through my email.";
+
+// MARK: COMMANDS
+export const SR_COMMAND_HELP = `You can talk to an AI version of me by typing in the chat box below without the "/". Here are some commands you can use:
+- /help: Show this help message
+- /reboard: Redo the onboarding process
+`;
+
+export const SR_COMMAND_NOT_FOUND =
+  "I don't understand that command. Type /help for help.";
