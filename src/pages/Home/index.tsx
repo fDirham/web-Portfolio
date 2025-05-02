@@ -224,6 +224,7 @@ export default function Home() {
       addMessageContent(reply, true);
     } catch (error) {
       addMessageContent(SR_BOT_ERROR, true);
+      console.error("Error in bot chat:", error);
     }
     setBotTyping(false);
   }
