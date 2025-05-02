@@ -75,10 +75,15 @@
   gap: 16px;
 }
 
-.chat__message__video--horizontal,
+.chat__message__video--horizontal {
+  height: 300px;
+  width: 100%;
+  border-radius: 8px;
+}
+
 .chat__message__video--vertical {
   height: 300px;
-  width: auto;
+  width: 138.75px;
   border-radius: 8px;
 }
 

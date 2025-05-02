@@ -3,6 +3,7 @@ import { useEffect, useState } from "preact/hooks";
 import ProjectListMenu from "../../components/ProjectListMenu";
 import { ChatMessage } from "../../types/ChatMessage";
 import {
+  LSKEY_ONBOARDING_DONE,
   NAME_BOT,
   NAME_USER,
   PRELOAD_IMG_SRC_LIST,
@@ -51,15 +52,20 @@ export default function Home() {
   const [showOnboardingOptions, setShowOnboardingOptions] = useState(false);
   const [inputEnabled, setInputEnabled] = useState(false);
   const [isBotTyping, setBotTyping] = useState(false);
-  const [isStarted, setStarted] = useState(true);
+  const [isStarted, setStarted] = useState(false);
   const [hasChatted, setHasChatted] = useState(false);
 
   useEffect(() => {
-    startNormalChat();
-    // if (!isStarted) {
-    //   startOnboarding();
-    //   setStarted(true);
-    // }
+    if (!isStarted) {
+      const isOnboardingDone = localStorage.getItem(LSKEY_ONBOARDING_DONE);
+
+      if (isOnboardingDone) {
+        startNormalChat();
+      } else {
+        startOnboarding();
+      }
+      setStarted(true);
+    }
   }, [isStarted]);
 
   // MARK: Normal chat state
@@ -69,6 +75,8 @@ export default function Home() {
     setShowBottomContainer(true);
     setShowOnboardingOptions(false);
     setInputEnabled(true);
+    setBotTyping(false);
+    setHasChatted(false);
 
     setMessages([
       {
@@ -87,6 +95,9 @@ export default function Home() {
     setShowProjectListMenu(false);
     setShowBottomContainer(false);
     setInputEnabled(false);
+    setBotTyping(false);
+    setHasChatted(false);
+    localStorage.removeItem(LSKEY_ONBOARDING_DONE);
 
     setMessages([
       {
@@ -144,6 +155,8 @@ export default function Home() {
     setBotTyping(false);
     setInputEnabled(true);
     await addMessageContentAndWait(SR_HELP_REVEAL, true);
+
+    localStorage.setItem(LSKEY_ONBOARDING_DONE, "y");
   }
 
   // MARK: Interactions
@@ -193,15 +206,14 @@ export default function Home() {
   }
 
   async function handleBotChat(newMessage: string, newMessages: ChatMessage[]) {
-    //  Bot chat
+    setBotTyping(true);
 
     if (!hasChatted) {
       await addMessageContentAndWait(SR_FIRST_BOT_CHAT_DISCLAIMER, true);
       setHasChatted(true);
+    } else {
+      await waitDelay(1);
     }
-
-    setBotTyping(true);
-    await waitDelay(1);
 
     const prevMessages = newMessages
       .filter((msg) => !msg.isLoading)

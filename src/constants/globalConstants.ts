@@ -48,3 +48,6 @@ export const PRELOAD_IMG_SRC_LIST = [
   URL_ICON_JOTTER,
   URL_ICON_ASR,
 ];
+
+// Local storage
+export const LSKEY_ONBOARDING_DONE = "ob_done";
