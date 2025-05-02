@@ -46,14 +46,14 @@ export default function Home() {
   const [showOnboardingOptions, setShowOnboardingOptions] = useState(false);
   const [inputEnabled, setInputEnabled] = useState(false);
   const [isBotTyping, setBotTyping] = useState(false);
-  const [isStarted, setStarted] = useState(false);
+  const [isStarted, setStarted] = useState(true);
 
   useEffect(() => {
-    // startNormalChat();
-    if (!isStarted) {
-      startOnboarding();
-      setStarted(true);
-    }
+    startNormalChat();
+    // if (!isStarted) {
+    //   startOnboarding();
+    //   setStarted(true);
+    // }
   }, [isStarted]);
 
   // MARK: Normal chat state

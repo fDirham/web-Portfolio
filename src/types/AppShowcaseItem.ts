@@ -6,4 +6,5 @@ export type AppShowcaseItem = {
   year: string;
   videoUrl: string;
   links: { [label: string]: string }[];
+  isVideoHorizontal: boolean;
 };

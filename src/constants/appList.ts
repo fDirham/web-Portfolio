@@ -24,6 +24,7 @@ export const APP_LIST: AppShowcaseItem[] = [
       "An AI study tutor + flash cards app for iOS. Take a picture of a homework problem and get answers. Take a picture of your notes, get flash cards. It is written in SwiftUI.",
     year: "2025",
     videoUrl: URL_VID_PROFFY,
+    isVideoHorizontal: false,
     iconUrl: URL_ICON_PROFFY,
     links: [
       { label: "App Store", url: "https://apps.apple.com/app/id6742863940" },
@@ -36,6 +37,7 @@ export const APP_LIST: AppShowcaseItem[] = [
       "A cat themed productivity app + pomodoro timer. Built with SwiftUI and used SpriteKit for animations. Gained users through TikTok + in person events.",
     year: "2025",
     videoUrl: URL_VID_NEKO_FOCUS,
+    isVideoHorizontal: false,
     iconUrl: URL_ICON_NEKO_FOCUS,
     links: [
       { label: "App Store", url: "https://apps.apple.com/app/id6737785097" },
@@ -47,6 +49,7 @@ export const APP_LIST: AppShowcaseItem[] = [
     description: "A rocket and asteroid themed runner game made with Godot.",
     year: "2024",
     videoUrl: URL_VID_ROCKET_PIXELS,
+    isVideoHorizontal: false,
     iconUrl: URL_ICON_ROCKET_PIXELS,
     links: [
       { label: "App Store", url: "https://apps.apple.com/app/id6701996449" },
@@ -59,6 +62,7 @@ export const APP_LIST: AppShowcaseItem[] = [
       "A note taking app with a focus on keyboard shortcuts and speed. Built with electron JS, mainly for MacOS. It works by being an overlay over your screen when needed.",
     year: "2024",
     videoUrl: URL_VID_JOTTER,
+    isVideoHorizontal: true,
     iconUrl: URL_ICON_JOTTER,
     links: [
       {
@@ -74,6 +78,7 @@ export const APP_LIST: AppShowcaseItem[] = [
       "An app that blocks other apps on a schedule so you can focus. It works by grouping apps into block groups then assigning a block schedule. Built with Swift.",
     year: "2024",
     videoUrl: URL_VID_DUCK_BLOCK,
+    isVideoHorizontal: false,
     iconUrl: URL_ICON_DUCK_BLOCK,
     links: [
       {
@@ -89,6 +94,7 @@ export const APP_LIST: AppShowcaseItem[] = [
       "A native mac OS app that is a pomodoro timer in your menu bar. It is a simple timer that you can start and stop. Built with Swift.",
     year: "2024",
     videoUrl: URL_VID_JUST_FOCUS,
+    isVideoHorizontal: true,
     iconUrl: URL_ICON_JUST_FOCUS,
     links: [
       { label: "App Store", url: "https://apps.apple.com/app/id6615067696" },
@@ -101,6 +107,7 @@ export const APP_LIST: AppShowcaseItem[] = [
       "A native mac OS app that scrapes app store data. Used to conduct competitor research. Built with Swift.",
     year: "2024",
     videoUrl: URL_VID_ASR,
+    isVideoHorizontal: true,
     iconUrl: URL_ICON_ASR,
     links: [
       {

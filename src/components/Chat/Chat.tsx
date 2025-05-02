@@ -30,9 +30,13 @@ export default function Chat({ messages, isBotTyping }: ChatProps) {
   const renderMessageContent = (message: ChatMessage) => {
     if (message.appShowcaseItem) {
       const { appShowcaseItem } = message;
+      const videoClass = appShowcaseItem.isVideoHorizontal
+        ? "chat__message__video--horizontal"
+        : "chat__message__video--vertical";
+
       return (
         <div class="chat__message__content chat__message__content--app-showcase">
-          <video controls={true} class="chat__message__video">
+          <video controls={true} class={videoClass}>
             <source src={appShowcaseItem.videoUrl} type="video/mp4" />
           </video>
           <p>
