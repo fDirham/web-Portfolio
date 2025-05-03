@@ -2,6 +2,12 @@ import TextareaAutosize from "react-textarea-autosize";
 import SubmitIcon from "../SubmitIcon";
 import "./BottomContainer.css";
 import FadeAnimWrapper from "../FadeAnimWrapper";
+import {
+  URL_EMAIL,
+  URL_GITHUB,
+  URL_LINKEDIN,
+  URL_RESUME,
+} from "../../constants/globalConstants";
 
 type BottomContainerProps = {
   inputValue: string;
@@ -71,19 +77,16 @@ export default function BottomContainer({
             </div>
           </form>
           <div class="bottom__links-container">
-            <a href="" class="bottom__link">
-              Home
-            </a>
-            <a href="" class="bottom__link">
+            <a href={URL_EMAIL} class="bottom__link">
               Email
             </a>
-            <a href="" class="bottom__link">
+            <a href={URL_LINKEDIN} class="bottom__link" target="_blank">
               LinkedIn
             </a>
-            <a href="" class="bottom__link">
+            <a href={URL_GITHUB} class="bottom__link" target="_blank">
               GitHub
             </a>
-            <a href="" class="bottom__link">
+            <a href={URL_RESUME} class="bottom__link" target="_blank">
               Resume
             </a>
           </div>

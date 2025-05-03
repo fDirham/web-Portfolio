@@ -66,7 +66,7 @@ export const APP_LIST: AppShowcaseItem[] = [
     iconUrl: URL_ICON_JOTTER,
     links: [
       {
-        label: "Github",
+        label: "GitHub",
         url: "https://github.com/fDirham/electron-Jotter-quick_note_taking",
       },
     ],
@@ -82,7 +82,7 @@ export const APP_LIST: AppShowcaseItem[] = [
     iconUrl: URL_ICON_DUCK_BLOCK,
     links: [
       {
-        label: "Github",
+        label: "GitHub",
         url: "https://github.com/fDirham/iOS-DuckBlock-app_blocking",
       },
     ],
@@ -111,7 +111,7 @@ export const APP_LIST: AppShowcaseItem[] = [
     iconUrl: URL_ICON_ASR,
     links: [
       {
-        label: "Github",
+        label: "GitHub",
         url: "https://github.com/fDirham/macOS-ASR-app_store_researcher",
       },
     ],
