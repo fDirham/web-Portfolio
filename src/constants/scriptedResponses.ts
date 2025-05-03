@@ -1,7 +1,7 @@
 export const SR_WELCOME =
   "👋 Welcome to my <b>interactive portfolio!</b> Before we get started, why don't you tell me a little bit about yourself?";
 export const SR_NORMAL_WELCOME =
-  "👋 Welcome back! Ready to chat with FBD GPT again? \n Remember, type /help for help.";
+  "👋 Welcome back! Ready to chat with FBD GPT again? \n Remember, you can type /help for help.";
 
 // MARK: Onboarding chains
 export const SR_CHAIN_ONBOARDING_RECRUITER = [
@@ -50,7 +50,7 @@ export const SR_CHAIN_JUST_BROWSING = [
 ];
 
 export const SR_CHAT_APP_REVEAL =
-  "Anyways... my portfolio is <b>not like the other portfolios</b> 😳. It's a fully formed <b>AI chat app</b> that I built!";
+  "Anyways... my portfolio is <b>not like the other portfolios</b>. It's a fully formed <b>AI chat app</b> that I built!";
 export const SR_INPUT_REVEAL =
   "You can ask me questions down here and <b>(A)I</b>  will respond to you.";
 export const SR_PROJECTS_REVEAL__WEB =
@@ -65,10 +65,10 @@ export const SR_FIRST_BOT_CHAT_DISCLAIMER =
   "<b>DISCLAIMER: This chat is powered by an LLM and may not be accurate</b>. Trust my resume, the scripted responses, and official communications more than this. Have fun though 😎";
 
 export const SR_BOT_ERROR =
-  "This is embarassing, but something went wrong with my AI brain 😞. Please try again later. Let me know by contacting me through my email.";
+  "This is embarassing, but something went wrong with my AI service 😞. Please try again later. If the problem persists, let me know by contacting me through my email.";
 
 // MARK: COMMANDS
-export const SR_COMMAND_HELP = `You can talk to an AI version of me by typing in the chat box below without the "/". Here are some commands you can use:
+export const SR_COMMAND_HELP = `You can talk to an AI version of me by typing in the chat box below without starting with "/". Using a "/" means you are inputting a command to get some predictable output. Here are some commands you can use:
 - /help: Show this help message
 - /reboard: Redo the onboarding process
 `;
