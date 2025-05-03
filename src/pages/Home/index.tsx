@@ -99,6 +99,7 @@ export default function Home() {
     setHasChatted(false);
     localStorage.removeItem(LSKEY_ONBOARDING_DONE);
 
+    await waitDelay(1);
     setMessages([
       {
         id: new Date().toISOString(),
