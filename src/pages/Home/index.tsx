@@ -90,7 +90,6 @@ export default function Home() {
 
   // MARK: Onboarding
   async function startOnboarding() {
-    setShowOnboardingOptions(true);
     setShowHeader(false);
     setShowProjectListMenu(false);
     setShowBottomContainer(false);
@@ -100,6 +99,7 @@ export default function Home() {
     localStorage.removeItem(LSKEY_ONBOARDING_DONE);
 
     await waitDelay(1);
+    setShowOnboardingOptions(true);
     setMessages([
       {
         id: new Date().toISOString(),
