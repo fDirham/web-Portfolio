@@ -3,7 +3,7 @@
 My portfolio site, acts like a chat app. Created with preact.
 
 <h2 align="center">
-  <img height="256" width="256" src="./src/assets/favicon.svg">
+  <img height="256" width="256" src="./public/favicon.svg">
 </h2>
 
 ## Getting Started
